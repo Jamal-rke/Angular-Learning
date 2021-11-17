@@ -7,18 +7,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CounterComponent implements OnInit {
   currentCount = 0;
+  name = 'Ankit soni';
+  school = '';
+
+  students: string[] = ['ankit', 'jamal', 'rohit', 'ankur', 'david'];
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let name_box = document.getElementById('name_box');
+    for (let i = 0; i < this.students.length; i++) {
+      let p = document.createElement('p');
+      p.innerText = i + 1 + '). ' + this.students[i];
+      name_box.appendChild(p);
+    }
+  }
 
-  add() {
+  add(event) {
+    console.log(event);
+
     this.currentCount++;
   }
 
   sub() {
     this.currentCount--;
   }
+
+  detectChange(event) {
+    this.name = event.target.value;
+  }
+
+  check(event) {
+    console.log(event);
+  }
 }
 
-// string interpolation -> one way binding -> from ts to html
+// string interpolation -> one way binding -> from .ts to .html
+
+// if else
+// for

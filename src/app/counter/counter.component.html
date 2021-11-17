@@ -2,5 +2,36 @@
   {{ currentCount }}
 </span>
 
-<button (click)="add()">Add 1</button>
+<button (click)="add($event)">Add 1</button>
 <button (click)="sub()">Substract 1</button>
+
+<br /><br />
+
+<label for="name">Name: </label>
+<input type="text" id="name" [value]="name" (input)="detectChange($event)" />
+<br />
+<h1>{{ name }}</h1>
+
+<br /><br />
+
+<label for="School">School: </label>
+<input type="text" id="School" [(ngModel)]="school" *ngIf="currentCount >= 0" />
+<br />
+<h1>{{ school }}</h1>
+
+<div id="name_box"></div>
+
+<div>
+  <h3 *ngFor="let student of students; let i = index">
+    {{ i + 1 }}). {{ student }}
+  </h3>
+</div>
+
+<div [ngSwitch]="currentCount">
+  <h1 *ngSwitchCase="0">{{ students[0] }}</h1>
+  <h1 *ngSwitchCase="1">{{ students[1] }}</h1>
+  <h1 *ngSwitchCase="2">{{ students[2] }}</h1>
+  <h1 *ngSwitchCase="3">{{ students[3] }}</h1>
+  <h1 *ngSwitchCase="4">{{ students[4] }}</h1>
+  <h1 *ngSwitchDefault="">Invalid Value</h1>
+</div>
