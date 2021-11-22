@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GenericService } from '../service/generic.service';
 
 @Component({
   selector: 'app-counter',
@@ -10,9 +11,11 @@ export class CounterComponent implements OnInit {
   name = 'Ankit soni';
   school = '';
 
+  num1: number = null;
+
   students: string[] = ['ankit', 'jamal', 'rohit', 'ankur', 'david'];
 
-  constructor() {}
+  constructor(private gs: GenericService) {}
 
   ngOnInit(): void {
     let name_box = document.getElementById('name_box');
@@ -39,6 +42,11 @@ export class CounterComponent implements OnInit {
 
   check(event) {
     console.log(event);
+  }
+
+  checkPrime() {
+    let val = this.gs.isPrime(this.num1);
+    console.log(val);
   }
 }
 
