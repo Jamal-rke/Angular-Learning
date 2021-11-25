@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GenericService } from '../service/generic.service';
+import { GenericService } from '../../service/generic.service';
 
 @Component({
   selector: 'app-counter',
