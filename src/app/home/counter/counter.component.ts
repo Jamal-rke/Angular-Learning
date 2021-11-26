@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { GenericService } from '../../service/generic.service';
 
 @Component({
@@ -15,8 +17,9 @@ export class CounterComponent implements OnInit {
 
   students: string[] = ['ankit', 'jamal', 'rohit', 'ankur', 'david'];
 
-  constructor(private gs: GenericService) {}
+  constructor(private gs: GenericService, private ar: ActivatedRoute) {}
 
+  private $arSub: Subscription;
   ngOnInit(): void {
     let name_box = document.getElementById('name_box');
     for (let i = 0; i < this.students.length; i++) {
@@ -24,6 +27,21 @@ export class CounterComponent implements OnInit {
       p.innerText = i + 1 + '). ' + this.students[i];
       name_box.appendChild(p);
     }
+
+    this.$arSub = this.ar.queryParams.subscribe((params) => {
+      console.log('By AR', params);
+    });
+
+    let qParams = {};
+    window.location.href
+      .split('?')[1]
+      .split('&')
+      .forEach((params) => {
+        let temp = params.split('=');
+        temp[1] = temp[1].replace('%20', ' ');
+        qParams[temp[0]] = temp[1];
+      });
+    console.log('manual', qParams);
   }
 
   add(event) {
