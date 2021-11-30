@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { GenericService } from './service/generic.service';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
+import { NamePipe } from './pipes/name.pipe';
 
 @NgModule({
   declarations: [AppComponent],

@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -10,11 +11,18 @@ import { Subscription } from 'rxjs';
 export class DashboardComponent implements OnInit {
   name: string = '';
   age: string = '';
+  date: Date;
 
-  constructor(private ar: ActivatedRoute) {}
+  constructor(private ar: ActivatedRoute, public datePipe: DatePipe) {}
+
+  get dateX() {
+    return this.datePipe.transform(this.date, 'dd/MM/YYYY');
+  }
 
   private $arSub: Subscription;
   ngOnInit(): void {
+    this.date = new Date();
+
     this.$arSub = this.ar.params.subscribe((params) => {
       this.name = params.name;
       this.age = params.age;

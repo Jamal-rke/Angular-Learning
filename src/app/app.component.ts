@@ -9,7 +9,7 @@ import { GenericService } from './service/generic.service';
 })
 export class AppComponent {
   title = 'demo';
-
+  myPass = '';
   constructor(private gs: GenericService, private router: Router) {}
 
   check(event) {
