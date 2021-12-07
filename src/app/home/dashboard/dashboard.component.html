@@ -7,3 +7,6 @@
 
 <h2>{{ name }}</h2>
 <h3>{{ age }}</h3>
+
+<h1>{{ counter }}</h1>
+<app-selector [text]="text" (updated)="updatecounter($event)"></app-selector>

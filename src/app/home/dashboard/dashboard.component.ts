@@ -13,6 +13,9 @@ export class DashboardComponent implements OnInit {
   age: string = '';
   date: Date;
 
+  counter = 0;
+  text: string = 'some text from dashboard';
+
   constructor(private ar: ActivatedRoute, public datePipe: DatePipe) {}
 
   get dateX() {
@@ -27,5 +30,9 @@ export class DashboardComponent implements OnInit {
       this.name = params.name;
       this.age = params.age;
     });
+  }
+
+  updatecounter(e) {
+    this.counter += e;
   }
 }

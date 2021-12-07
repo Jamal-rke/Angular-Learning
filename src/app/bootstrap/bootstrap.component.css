@@ -1,0 +1,9 @@
+.borderx {
+  border: 1px solid black;
+}
+.bordery {
+  border: 1px solid blue;
+}
+.borderz {
+  border: 1px solid red;
+}

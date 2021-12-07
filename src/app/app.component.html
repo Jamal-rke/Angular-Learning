@@ -1,16 +1,38 @@
 <h1>
-  <a routerLink="home/dashboard">Dashboard</a>
+  <a routerLink="home/dashboard" class="btn btn-md btn-link">Dashboard</a>
 </h1>
 
 <h1>
   <a routerLink="home/secret" [queryParams]="{ pass: myPass }">Secret</a>
 </h1>
+<h1>
+  <a routerLink="bootstrap">Bootstrap</a>
+</h1>
 <label for="myPass">Password to open secret component</label>
-<input id="myPass" type="password" [(ngModel)]="myPass" />
 
+<div class="rowm-5">
+  <input
+    id="myPass"
+    type="password"
+    placeholder="Password"
+    [(ngModel)]="myPass"
+    class="form-control"
+  />
+</div>
 <h1>
   <!-- <a routerLink="home/counter">counter</a> -->
-  <button (click)="goto('home/counter')">Counter</button>
+  <button
+    (click)="goto('home/counter')"
+    class="btn btn-md mx-2 btn-outline-primary"
+  >
+    Counter
+  </button>
+  <button (click)="goto('home/counter')" class="btn btn-md mx-2 btn-secondary">
+    Counter
+  </button>
+  <button (click)="goto('home/counter')" class="btn btn-md mx-2 btn-accent">
+    Counter
+  </button>
 </h1>
 
 <router-outlet></router-outlet>

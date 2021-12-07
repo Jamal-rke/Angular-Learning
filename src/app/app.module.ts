@@ -7,9 +7,10 @@ import { GenericService } from './service/generic.service';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
 import { NamePipe } from './pipes/name.pipe';
+import { BootstrapComponent } from './bootstrap/bootstrap.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, BootstrapComponent],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HomeModule],
   providers: [GenericService],
   bootstrap: [AppComponent],
